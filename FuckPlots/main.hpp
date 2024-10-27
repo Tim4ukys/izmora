@@ -8,6 +8,7 @@
 #include <exception>
 #include <memory>
 #include <map>
+#include <any>
 
 #include <Windows.h>
 #include <wrl/client.h>

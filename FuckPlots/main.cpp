@@ -44,7 +44,6 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmd
         im::SetNextWindowSize(im::GetIO().DisplaySize);
         if (im::Begin("##fuck_izmora", 0, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground)) {
             sampl.draw();
-            //ImPlot::ShowDemoWindow();
             im::End();
         }
 
@@ -59,10 +58,13 @@ int APIENTRY WinMain(HINSTANCE hInst, HINSTANCE hInstPrev, PSTR cmdline, int cmd
         ImGuiIO& io = ImGui::GetIO(); (void)io;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 
-        ImGui::StyleColorsDark();
+        //ImGui::StyleColorsDark();
+        
+        io.FontGlobalScale = 0.75f;
+        ImGui::StyleColorsLight();
         ImGui_ImplWin32_Init(g_Window->getHWND());
         ImGui_ImplDX11_Init(pDevice, pDeviceContext);
-        io.Fonts->AddFontFromFileTTF("test.ttf", 18.f, nullptr, io.Fonts->GetGlyphRangesCyrillic());
+        io.Fonts->AddFontFromFileTTF("test.ttf", 18.f*2, nullptr, io.Fonts->GetGlyphRangesCyrillic());
         };
     auto destroyDevice = [](ID3D11Device*, ID3D11DeviceContext*) {
         ImGui_ImplDX11_Shutdown();

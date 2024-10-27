@@ -49,7 +49,7 @@ core::Graphics::GraphicsEngine::~GraphicsEngine()
 
 void core::Graphics::GraphicsEngine::render()
 {
-    m_pDeviceContext->ClearRenderTargetView(m_pRenderTargetView.Get(), DirectX::Colors::Black);
+    m_pDeviceContext->ClearRenderTargetView(m_pRenderTargetView.Get(), DirectX::Colors::White);
     onRender(m_pDevice.Get(), m_pDeviceContext.Get());
     m_pSwapChain->Present(1, 0);
 }
